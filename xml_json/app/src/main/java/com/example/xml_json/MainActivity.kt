@@ -12,9 +12,9 @@ import javax.xml.parsers.DocumentBuilder
 import javax.xml.parsers.DocumentBuilderFactory
 
 class MainActivity : AppCompatActivity() {
-    lateinit var temperature: TextView
-    lateinit var xmlbutton: Button
-    lateinit var jsonbutton: Button
+    private lateinit var temperature: TextView
+    private lateinit var xmlbutton: Button
+    private lateinit var jsonbutton: Button
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,19 +31,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun parseXML(){
         val input = assets.open("myxml.xml")
-        val dbf = DocumentBuilderFactory.newInstance()
-        val docbuild = dbf.newDocumentBuilder()
-        val doc = docbuild.parse(input)
-
-        temperature.text = doc.getElementsByTagName("temperature").item(0).firstChild.nodeValue
+        val dbf = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(input)
+//        val docbuild = dbf.newDocumentBuilder()
+//        val doc = docbuild.parse(input)
+        temperature.text = dbf.getElementsByTagName("temperature").item(0).firstChild.nodeValue
     }
 
     private fun parseJSON(){
-        var obj = JSONObject(jparse());
+        val obj = JSONObject(jparse());
         temperature.text = obj.getString("temperature")
     }
 
-    private fun jparse () : String{
+    private fun jparse () : String {
         val json: String
         try {
             val input = assets.open("myjson.json")

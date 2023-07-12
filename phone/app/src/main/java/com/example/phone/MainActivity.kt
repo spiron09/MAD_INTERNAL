@@ -22,6 +22,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        /*Put these lines in manifest
+        <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"></uses-permission>
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>*/
+        
         one = findViewById(R.id.one)
         two = findViewById(R.id.two)
         three = findViewById(R.id.three)

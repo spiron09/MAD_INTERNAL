@@ -7,6 +7,7 @@ import android.os.Handler
 import android.widget.Button
 import android.widget.Toast
 
+
 class MainActivity : AppCompatActivity() {
     var mywall: Array<Int> = arrayOf( R.drawable.wall1, R.drawable.wall2);
     private lateinit var changewallpaper: Button
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         changewallpaper = findViewById(R.id.Button)
         changewallpaper.setOnClickListener { setwallpaper() }
-
+        //add SET_WALLPAPER permission in manifest
 
     }
 
